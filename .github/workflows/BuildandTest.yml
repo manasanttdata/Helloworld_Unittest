@@ -36,9 +36,6 @@ jobs:
         run: dotnet test --configuration Release
       - name: Publish artifacts
         run: dotnet publish --configuration Release -o out ./src/ValuesAPIwithUnitTest/ValuesAPIwithUnitTest.csproj
-      - name: dotnet publish
-        run: dotnet publish -c Release -o out
-      
       - name : Zip contents of the folder
         run: | 
           cd out;

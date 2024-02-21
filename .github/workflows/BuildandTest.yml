@@ -1,5 +1,5 @@
 
-name: Build and deploy ASP.Net Core app QA branch
+name: Build and Test ASP.Net Core web API
 
 env:
   DOTNET_VERSION: '6.0.x'                 # set this to the .NET Core version to use
@@ -30,7 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release .\src\ValuesAPIwithUnitTest\ValuesAPIwithUnitTest.csproj
 
       - name: dotnet publish
         run: dotnet publish -c Release -o out

@@ -30,13 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
       - name: Build with dotnet
-        run: dotnet build --configuration Release .\src\ValuesAPIwithUnitTest\ValuesAPIwithUnitTest.csproj
+        run: dotnet build --configuration Release 
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o out
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifactfile
-          path: out
+      - name: Dotnet test
+        run: dotnet test --configuration Release

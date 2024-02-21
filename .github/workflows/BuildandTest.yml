@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,3 +34,5 @@ jobs:
 
       - name: Dotnet test
         run: dotnet test --configuration Release
+      - name: Publish artifacts
+        run: dotnet publish --configuration Release
